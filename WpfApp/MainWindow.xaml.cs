@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,28 +35,28 @@ namespace WpfApp
             string mobile = mobile_txt.Text;
             string pwd = pwd_txt.Password;
             string url = "http://app.8office.cn/site/check-password?username=" + mobile + "&password=" + pwd;
-            string retJson = this.HttpGet(url, "");
-            JObject jo = JObject.Parse(retJson);
-            string[] values = jo.Properties().Select(item => item.Value.ToString()).ToArray();
-            if (values.Length > 0)
+            string retJson = HttpGet(url);
+            JObject jo = (JObject)JsonConvert.DeserializeObject(retJson);
+            if (jo.HasValues)
             {
-                if (values[0] == "200")
+                if (jo["code"].ToString() == "200")
                 {
-                    System.Diagnostics.Process.Start("http://web.8office.cn/#/desktop_login?uuid=" + values[2]);
+                    System.Diagnostics.Process.Start("http://web.8office.cn/#/desktop_login?uuid=" + jo["uuid"].ToString());
                 }
                 else
                 {
-                    MessageBox.Show(values[1], "Maxiye");
+                    MessageBox.Show(jo["message"].ToString(), "Maxiye");
                 }                
-            } else
+            }
+            else
             {
                 MessageBox.Show("网络异常", "Maxiye");
             }
 
         }
-        public string HttpGet(string Url, string postDataStr)
+        public string HttpGet(string Url, string postDataStr = null)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url + (postDataStr == "" ? "" : "?") + postDataStr);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url + (postDataStr == null ? "" : "?") + postDataStr);
             request.Method = "GET";
             request.ContentType = "application/json;charset=UTF-8";
 
@@ -73,7 +74,6 @@ namespace WpfApp
         {
             if (e.Key == Key.Enter)
             {
-                Console.WriteLine("111");
                 this.Clickme_Click(sender, e);
             }
         }
