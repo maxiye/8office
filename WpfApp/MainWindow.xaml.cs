@@ -46,8 +46,7 @@ namespace WpfApp
                 else
                 {
                     MessageBox.Show(values[1], "Maxiye");
-                }
-                
+                }                
             } else
             {
                 MessageBox.Show("网络异常", "Maxiye");
