@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="八点办" Height="350" Width="525" ResizeMode="NoResize">
+    <Grid Background="AliceBlue">
+        <TextBlock Text="手机号：" VerticalAlignment="Center" Margin="147,75,315,213"/>
+        <TextBlock Text="密码：" VerticalAlignment="Center" Margin="147,117,315,173"/>
+        <TextBox Name="mobile_txt" Text="13641635423" Margin="224,74,162,216"/>
+        <PasswordBox Name="pwd_txt" Password="" Margin="224,117,162,173" KeyUp="Pwd_KeyUp" />
+        <Button Content="登陆" Name="clickme" Margin="224,174,236,116" Cursor="Hand" Click="Clickme_Click"/>
+    </Grid>
+</Window>
