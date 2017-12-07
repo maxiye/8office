@@ -10,7 +10,7 @@
         <TextBlock Text="手机号：" VerticalAlignment="Center" Margin="147,75,315,213"/>
         <TextBlock Text="密码：" VerticalAlignment="Center" Margin="147,117,315,173"/>
         <TextBox Name="mobile_txt" Text="13641635423" Margin="224,74,162,216"/>
-        <PasswordBox Name="pwd_txt" Password="" Margin="224,117,162,173" KeyUp="Pwd_KeyUp" />
+        <PasswordBox Name="pwd_txt" Password="" Margin="224,117,162,173" KeyDown="Pwd_KeyDown" />
         <Button Content="登陆" Name="clickme" Margin="224,174,236,116" Cursor="Hand" Click="Clickme_Click"/>
     </Grid>
 </Window>

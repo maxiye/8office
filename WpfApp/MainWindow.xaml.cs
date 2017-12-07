@@ -70,11 +70,11 @@ namespace WpfApp
             return retString;
         }
 
-        private void Pwd_KeyUp(object sender, KeyEventArgs e)
+        private void Pwd_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            if (e.Key == Key.Enter && e.IsDown)
             {
-                this.Clickme_Click(sender, e);
+                this.Clickme_Click(sender, null);
             }
         }
     }
