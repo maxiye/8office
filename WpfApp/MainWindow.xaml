@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="八点办" Height="350" Width="525" ResizeMode="NoResize">
-    <Grid Background="AliceBlue">
-        <TextBlock Text="手机号：" VerticalAlignment="Center" Margin="147,75,315,213"/>
-        <TextBlock Text="密码：" VerticalAlignment="Center" Margin="147,117,315,173"/>
-        <TextBox Name="mobile_txt" Text="13641635423" Margin="224,74,162,216"/>
-        <PasswordBox Name="pwd_txt" Password="" Margin="224,117,162,173" KeyDown="Pwd_KeyDown" />
-        <Button Content="登陆" Name="clickme" Margin="224,174,236,116" Cursor="Hand" Click="Clickme_Click"/>
+        Title="八点办" MinHeight="360" Height="360" MinWidth="550" Width="550" ResizeMode="CanResize" Background="AliceBlue">
+    <Grid Background="AliceBlue" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="手机号：" Padding="7,7" Margin="147,61,291,188" Height="30"/>
+        <TextBlock Text="密码：" Padding="7,7" Margin="147,104,291,145" Height="30" />
+        <TextBox Name="mobile_txt" VerticalContentAlignment="Center" Text="13641635423" Margin="224,61,140,188"/>
+        <PasswordBox Name="pwd_txt" VerticalContentAlignment="Center" Password="" Margin="224,104,140,145" KeyDown="Pwd_KeyDown" />
+        <Button Content="登陆" Name="clickme" Margin="224,168,177,81" Cursor="Hand" Click="Clickme_Click"/>
     </Grid>
 </Window>

@@ -38,21 +38,12 @@ namespace WpfApp
             string retJson = HttpGet(url);
             JObject jo = (JObject)JsonConvert.DeserializeObject(retJson);
             if (jo.HasValues)
-            {
-                if (jo["code"].ToString() == "200")
-                {
-                    System.Diagnostics.Process.Start("http://web.8office.cn/#/desktop_login?uuid=" + jo["uuid"].ToString());
-                }
-                else
-                {
+                if (jo["code"].ToString() == "200")                
+                    System.Diagnostics.Process.Start("http://web.8office.cn/#/desktop_login?uuid=" + jo["uuid"].ToString());                
+                else                
                     MessageBox.Show(jo["message"].ToString(), "Maxiye");
-                }                
-            }
             else
-            {
                 MessageBox.Show("网络异常", "Maxiye");
-            }
-
         }
         public string HttpGet(string Url, string postDataStr = null)
         {
@@ -72,10 +63,7 @@ namespace WpfApp
 
         private void Pwd_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter && e.IsDown)
-            {
-                this.Clickme_Click(sender, null);
-            }
+            if (e.Key == Key.Enter && e.IsDown) this.Clickme_Click(sender, null);
         }
     }
 }
